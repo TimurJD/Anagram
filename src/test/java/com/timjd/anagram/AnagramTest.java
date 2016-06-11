@@ -1,8 +1,9 @@
 package com.timjd.anagram;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertNull;
 
 /**
  * @author Timur Berezhnoi
@@ -10,7 +11,6 @@ import org.junit.Test;
 public class AnagramTest {
 
     private Anagram anagram;
-    private String sentance;
 
     @Before
     public void setUp() {
@@ -19,7 +19,13 @@ public class AnagramTest {
 
     @Test
     public void should_return_null_if_sentace_null() {
-        sentance = null;
-        Assert.assertNull(anagram.getAnagram(sentance));
+        // Given
+        String sentance = null;
+
+        // When
+        String result = anagram.getAnagram(sentance);
+
+        // Then
+        assertNull(result);
     }
 }
