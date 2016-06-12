@@ -3,6 +3,7 @@ package com.timjd.anagram;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 /**
@@ -27,5 +28,18 @@ public class AnagramTest {
 
         // Then
         assertNull(result);
+    }
+
+    @Test
+    public void should_return_anagram() {
+        // Given
+        String sentance = "Java";
+        String expexted = "avaJ";
+
+        // When
+        String actual = anagram.getAnagram(sentance);
+
+        // Then
+        assertEquals(expexted, actual);
     }
 }
