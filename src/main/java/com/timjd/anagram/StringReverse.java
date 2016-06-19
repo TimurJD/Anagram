@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
  */
 class StringReverse implements Anagram {
 
-    public static final String DELIMITERS = " ";
+    private static final String DELIMITERS = " ,.!?@#$%^&*()-_=+<>/\\';:[]{}|~`\"";
 
     public String getAnagram(String sentence) {
         if(sentence == null) {

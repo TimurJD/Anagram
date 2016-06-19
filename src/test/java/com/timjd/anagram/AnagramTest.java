@@ -12,6 +12,8 @@ import static org.junit.Assert.assertNull;
 public class AnagramTest {
 
     private Anagram anagram;
+    private String sentence;
+    private String expected;
 
     @Before
     public void setUp() {
@@ -21,7 +23,7 @@ public class AnagramTest {
     @Test
     public void should_return_null_if_sentace_null() {
         // Given
-        String sentence = null;
+        sentence = null;
 
         // When
         String result = anagram.getAnagram(sentence);
@@ -33,21 +35,19 @@ public class AnagramTest {
     @Test
     public void should_return_anagram() {
         // Given
-        String sentence = "Java";
-        String expexted = "avaJ";
+        setUpSentences("Java", "avaJ");
 
         // When
         String actual = anagram.getAnagram(sentence);
 
         // Then
-        assertEquals(expexted, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
     public void should_return_anagarma_with_space() {
         // Given
-        String sentence = "Anagram space";
-        String expected = "marganA ecaps";
+        setUpSentences("Anagram space", "marganA ecaps");
 
         // When
         String actual = anagram.getAnagram(sentence);
@@ -59,13 +59,41 @@ public class AnagramTest {
     @Test
     public void should_return_anagarma_with_two_spaces() {
         // Given
-        String sentence = "Anagram two space";
-        String expected = "marganA owt ecaps";
+        setUpSentences("Anagram two space", "marganA owt ecaps");
 
         // When
         String actual = anagram.getAnagram(sentence);
 
         // Then
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void  should_return_anagram_with_symbols() {
+        // Given
+        setUpSentences("Anagram!", "marganA!");
+
+        // When
+        String actual = anagram.getAnagram(sentence);
+
+        // Then
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void  should_not_apply_symbols() {
+        // Given
+        setUpSentences(" ,.!?@#$%^&*()-_=+<>/\\';:[]{}|~`\"", " ,.!?@#$%^&*()-_=+<>/\\';:[]{}|~`\"");
+
+        // When
+        String actual = anagram.getAnagram(sentence);
+
+        // Then
+        assertEquals(expected, actual);
+    }
+
+    public void setUpSentences(String sentence, String expected) {
+        this.sentence = sentence;
+        this.expected = expected;
     }
 }
