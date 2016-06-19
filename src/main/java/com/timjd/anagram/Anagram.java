@@ -4,5 +4,12 @@ package com.timjd.anagram;
  * @author Timur Berezhnoi
  */
 interface Anagram {
-    String getAnagram(String sentance);
+
+    /**
+     * Reverse string without applying delimiters.
+     *
+     * @param sentence sentence to be reversed
+     * @return sentence or null if passed parametrs is null
+     */
+    String getAnagram(String sentence);
 }
