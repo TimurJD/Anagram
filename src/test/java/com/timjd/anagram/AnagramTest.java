@@ -55,4 +55,17 @@ public class AnagramTest {
         // Then
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void should_return_anagarma_with_two_spaces() {
+        // Given
+        String sentence = "Anagram two space";
+        String expected = "marganA owt ecaps";
+
+        // When
+        String actual = anagram.getAnagram(sentence);
+
+        // Then
+        assertEquals(expected, actual);
+    }
 }
