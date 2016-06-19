@@ -24,7 +24,7 @@ class StringReverse implements Anagram {
         String result = "";
 
         StringTokenizer token = new StringTokenizer(sentence, DELIMITERS, true);
-        while (token.hasMoreTokens()){
+        while(token.hasMoreTokens()) {
             result += new StringBuffer(token.nextToken()).reverse();
         }
 
