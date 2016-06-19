@@ -21,10 +21,10 @@ public class AnagramTest {
     @Test
     public void should_return_null_if_sentace_null() {
         // Given
-        String sentance = null;
+        String sentence = null;
 
         // When
-        String result = anagram.getAnagram(sentance);
+        String result = anagram.getAnagram(sentence);
 
         // Then
         assertNull(result);
@@ -33,13 +33,26 @@ public class AnagramTest {
     @Test
     public void should_return_anagram() {
         // Given
-        String sentance = "Java";
+        String sentence = "Java";
         String expexted = "avaJ";
 
         // When
-        String actual = anagram.getAnagram(sentance);
+        String actual = anagram.getAnagram(sentence);
 
         // Then
         assertEquals(expexted, actual);
+    }
+
+    @Test
+    public void should_return_anagarma_with_space() {
+        // Given
+        String sentence = "Anagram space";
+        String expected = "marganA ecaps";
+
+        // When
+        String actual = anagram.getAnagram(sentence);
+
+        // Then
+        assertEquals(expected, actual);
     }
 }
